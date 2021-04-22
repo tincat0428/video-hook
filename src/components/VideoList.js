@@ -9,7 +9,6 @@ const VideoList = ({ videos, onSelectVideo }) => {
                     key={video.id.videoId}
                     video={video}
                     onSelectVideo={onSelectVideo}
-                    onSelectVideo={onSelectVideo}
                 />
         )
     })

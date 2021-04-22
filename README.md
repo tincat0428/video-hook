@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# **React 練習 -- 客製 Hooks、獨立出 axios（YouTube搜尋網站）**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+教學影片 [Modern React with Redux [2020 Update] -- CH.14](https://www.udemy.com/course/react-redux/learn/lecture/20788014#overview)
 
-## Available Scripts
+## **`專案架構`** 
+```
+src/
+    api/
+        youtube.js
 
-In the project directory, you can run:
+    component/
+        App.js
+        SearchBar.js
+        VideoList.js
+        VideoItem.js
+        VideoDetail.js
+        Video.scss
 
-### `npm start`
+    hook/
+        useVideo.js
+```
+## **`客製 hook。useVideo`**
+> 輸入：關鍵字變數<br> 輸出：function（searchTerm() {呼叫 api、改變 state}）、及 state（videos）。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+學習重點：
+- App.js
+    - 引用自定義 hook
+    - 不用 hook 的原始方法（備註區）
+- useVideo.js
+    - 自定義 Video Hook
+    - 呼叫 Api（引用 youtube.js）
+## **`SearchBar`**
+> 輸入關鍵字，改變父層元件（App.js）的 state。
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+學習重點：
+- App.js
+    - 傳遞 "可以改變 state 的 function" 給 SearchBar
+- SearchBar.js
+    - react input 常用模式: value 綁 state
+    - useState 用法（functional component）
+    - onSubmit
+    - 利用 function props 改變父層 state
+## **`Video`**
+> 根據 props 顯現影片列表、主影片（搜尋出的第一個影片）
 
-### `npm test`
+學習重點：
+- VideoDetail.js
+- VideoList.js
+- VideoItem.js
+    - 元件單獨引用 css/sass
+## **`API`**
+> axios基本設定獨立出一個檔案，簡潔方便
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+學習重點：
+- youtube.js
+    - [google API 用法](https://www.udemy.com/course/react-redux/learn/lecture/12531356#overview)
+    - axios 基本設定
